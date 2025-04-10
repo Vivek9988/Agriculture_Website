@@ -10,20 +10,20 @@ const Header = () => {
                   <NavLink to="/" className="hover:underline">Home</NavLink>
               </li>
               <li>
-                  <NavLink to="/about" className="hover:underline">About Us</NavLink>
+                  <NavLink to="/About" className="hover:underline">About Us</NavLink>
               </li>
               <li>
-                  <NavLink to="/about" className="hover:underline">Our Services</NavLink>
+                  <NavLink to="/OurServices" className="hover:underline">Our Services</NavLink>
               </li>
               
               <li>
-                  <NavLink to="/services" className="hover:underline">Testimonals</NavLink>
+                  <NavLink to="/Testimonals" className="hover:underline">Testimonals</NavLink>
               </li>
               <li>
-                  <NavLink to="/services" className="hover:underline">Blog</NavLink>
+                  <NavLink to="/Vlog" className="hover:underline">Vlog</NavLink>
               </li>
               <li>
-                  <NavLink to="/contact" className="hover:underline">Contact</NavLink>
+                  <NavLink to="/Contact" className="hover:underline">Contact</NavLink>
               </li>
           </ul>
       </nav>
