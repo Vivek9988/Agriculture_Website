@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import axios from 'axios'
 
 function Home() {
+  const [jokes, setjokes] = useState([]);
+
   // Array of images with corresponding text
   const slides = [
     {
@@ -20,6 +23,15 @@ function Home() {
       text: "Healthy soil grows nutritious food",
     },
   ];
+  useEffect(() => {
+    axios.get('/api/jokes')
+      .then(function (response) {
+        setjokes(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  },[])
 
   // State to track the current slide index
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,7 +90,7 @@ function Home() {
 
 
       <div className="flex flex-wrap justify-center items-start w-full max-w-6xl mx-auto mt-10 mb-20">
-        <NavLink to="/service/1" className="border-l-1 border-t-1 border-b-1 border-green-400 p-4 h-40 text-center w-full sm:w-1/2 lg:w-1/4 hover:bg-green-100 transition">ji</NavLink>
+        <NavLink to="/ChatBox" className="border-l-1 border-t-1 border-b-1 border-green-400 p-4 h-40 text-center w-full sm:w-1/2 lg:w-1/4 hover:bg-green-100 transition">{jokes.length}</NavLink>
         <NavLink to="/service/2" className="border-l-1 border-t-1 border-b-1 border-green-400 p-4 h-40 text-center w-full sm:w-1/2 lg:w-1/4 hover:bg-green-100 transition">ji</NavLink>
         <NavLink to="/service/3" className="border-l-1 border-t-1 border-b-1 border-green-400 p-4 h-40 text-center w-full sm:w-1/2 lg:w-1/4 hover:bg-green-100 transition">ji</NavLink>
         <NavLink to="/service/4" className="border-l-1 border-t-1 border-b-1 border-r-1 border-green-400 p-4 h-40 text-center w-full sm:w-1/2 lg:w-1/4 hover:bg-green-100 transition">ji</NavLink>

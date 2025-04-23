@@ -9,6 +9,8 @@ import OurServices from './HeaderComponent/OurServices.jsx';
 import Testimonials from './HeaderComponent/Testimonals.jsx';
 import Contact from './HeaderComponent/Contact.jsx';
 import Vlog from './HeaderComponent/Vlog.jsx';
+import Signup from './Components/Signup.jsx';
+import ChatBox from './HomeComponent/ChatBox.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +21,10 @@ const router = createBrowserRouter(
       <Route path="/Testimonals" element={<Testimonials />} />
       <Route path="/Contact" element={<Contact />} />
       <Route path="/Vlog" element={<Vlog />} />
+      <Route path="/Signup" element={<Signup />} />
+      <Route path="/ChatBox" element={<ChatBox />} />
+
+      
     </Route>
   )
 );

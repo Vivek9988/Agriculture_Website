@@ -25,6 +25,9 @@ const Header = () => {
               <li>
                   <NavLink to="/Contact" className="hover:underline">Contact</NavLink>
               </li>
+              <li>
+                <NavLink to="/Signup" className=""> Signup</NavLink>
+              </li>
           </ul>
       </nav>
   )
