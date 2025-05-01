@@ -6,7 +6,7 @@ async function handleUserSignup(req, res) {
         email,
         password
     });
-    res.json({ message: 'Signup successful!' });
+    res.json({ message: 'Signup successful!' ,name});
 
 }
 

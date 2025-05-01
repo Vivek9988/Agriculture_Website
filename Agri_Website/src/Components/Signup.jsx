@@ -28,6 +28,7 @@ const Signup = () => {
             console.log("Response received...");
             const data = await res.json();
             alert(data.message);
+            console.log(data.name)
             navigate("/"); // Redirect to Home after successful signup
         } catch (err) {
             console.error("Signup failed:", err);
