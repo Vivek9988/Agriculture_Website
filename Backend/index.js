@@ -28,17 +28,15 @@ const openaiAPIKey = process.env.OPENAI_API_KEY;
 
 app.post('/api/chat', async (req, res) => {
     const userMessage = req.body.message;
-    console.log(userMessage)
+    console.log(userMessage);
 
     try {
-
-        //console.log("Using API Key:", openaiAPIKey);
-console.log("Making OpenAI request with key:", openaiAPIKey?.slice(0, 5) + "...");
+        console.log("Making OpenAI request with key:", openaiAPIKey?.slice(0, 5) + "...");
 
         const response = await axios.post(
-            'https://api.openai.com/v1/chat/completions',
+            'https://api.openai.com/v1/responses',
             {
-                model: "gpt-3.5-turbo",
+                model: "gpt-4.1",
                 messages: [
                     { role: "user", content: userMessage }
                 ],
@@ -52,15 +50,15 @@ console.log("Making OpenAI request with key:", openaiAPIKey?.slice(0, 5) + "..."
             }
         );
 
-        console.log("OpenAI Response:", response.data);
-        const chatbotResponse = response.data.choices[0].text.trim();
+        const chatbotResponse = response.data.choices[0].message.content.trim();
         res.json({ message: chatbotResponse });
-        
+
     } catch (error) {
-        // res.status(500).json({ error: 'Error in API request' });
-        console.log("error" , error)
+        console.error("Error during OpenAI API call:", error);
+        res.status(500).json({ error: 'Error in API request' });
     }
 });
+
 
 app.listen(3000, () => {
     console.log(`Server is running at http://localhost:${process.env.PORT}`);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {useAuth} from "../ContextApi/AuthContext";
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Signup = () => {
     });
 
     const navigate = useNavigate();
+    const { setUser } = useAuth();
 
     const handleChange = (e) => {
         setFormData((prev) => ({
@@ -28,7 +30,8 @@ const Signup = () => {
             console.log("Response received...");
             const data = await res.json();
             alert(data.message);
-            console.log(data.name)
+            setUser({ name: data.name });
+            //console.log(data.name)
             navigate("/"); // Redirect to Home after successful signup
         } catch (err) {
             console.error("Signup failed:", err);
