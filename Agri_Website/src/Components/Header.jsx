@@ -1,28 +1,115 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../ContextApi/AuthContext";
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
     const { user } = useAuth();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
-        <nav className="flex justify-center items-center p-6 bg-green-900 text-white">
-            <ul className="flex space-x-12">
-                <li><NavLink to="/" className="hover:underline">Home</NavLink></li>
-                <li><NavLink to="/About" className="hover:underline">About Us</NavLink></li>
-                <li><NavLink to="/OurServices" className="hover:underline">Our Services</NavLink></li>
-                <li><NavLink to="/Testimonals" className="hover:underline">Testimonals</NavLink></li>
-                <li><NavLink to="/Vlog" className="hover:underline">Vlog</NavLink></li>
-                <li><NavLink to="/Contact" className="hover:underline">Contact</NavLink></li>
-                <li>
-                    {user ? (
-                        <span className="font-bold">Hi, {user.name}</span>
-                    ) : (
-                        <NavLink to="/Signup" className="hover:underline">Signup</NavLink>
-                    )}
-                </li>
-            </ul>
-        </nav>
+        <header className="bg-gradient-to-r from-green-800 to-green-700 shadow-lg">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-20">
+                    {/* Logo placeholder - replace with your logo */}
+                    <div className="flex-shrink-0">
+                        <NavLink to="/" className="flex items-center">
+                            <span className="text-2xl font-bold text-white">🌱 FarmAI</span>
+                        </NavLink>
+                    </div>
+
+                    {/* Desktop Navigation */}
+                    <nav className="hidden md:flex space-x-8">
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                `text-white px-3 py-2 rounded-md text-sm font-medium transition-all 
+                                ${isActive ? 'bg-green-600 shadow-md' : 'hover:bg-green-700 hover:shadow-sm'}`
+                            }
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink
+                            to="/About"
+                            className={({ isActive }) =>
+                                `text-white px-3 py-2 rounded-md text-sm font-medium transition-all 
+                                ${isActive ? 'bg-green-600 shadow-md' : 'hover:bg-green-700 hover:shadow-sm'}`
+                            }
+                        >
+                            About Us
+                        </NavLink>
+                        <NavLink
+                            to="/OurServices"
+                            className={({ isActive }) =>
+                                `text-white px-3 py-2 rounded-md text-sm font-medium transition-all 
+                                ${isActive ? 'bg-green-600 shadow-md' : 'hover:bg-green-700 hover:shadow-sm'}`
+                            }
+                        >
+                            Our Services
+                        </NavLink>
+                        <NavLink
+                            to="/Testimonals"
+                            className={({ isActive }) =>
+                                `text-white px-3 py-2 rounded-md text-sm font-medium transition-all 
+                                ${isActive ? 'bg-green-600 shadow-md' : 'hover:bg-green-700 hover:shadow-sm'}`
+                            }
+                        >
+                            Testimonials
+                        </NavLink>
+                        <NavLink
+                            to="/Vlog"
+                            className={({ isActive }) =>
+                                `text-white px-3 py-2 rounded-md text-sm font-medium transition-all 
+                                ${isActive ? 'bg-green-600 shadow-md' : 'hover:bg-green-700 hover:shadow-sm'}`
+                            }
+                        >
+                            Vlog
+                        </NavLink>
+                    </nav>
+
+                    {/* User/Signup Section */}
+                    <div className="hidden md:block">
+                        {user ? (
+                            <div className="flex items-center space-x-2">
+                                <span className="text-white font-medium">Hi, {user.name}</span>
+                                <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white">
+                                    {user.name.charAt(0).toUpperCase()}
+                                </div>
+                            </div>
+                        ) : (
+                            <NavLink
+                                to="/Signup"
+                                className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md text-sm font-medium shadow-md transition-all"
+                            >
+                                Sign Up
+                            </NavLink>
+                        )}
+                    </div>
+
+                    {/* Mobile menu button */}
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={toggleMenu}
+                            className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-green-600 focus:outline-none"
+                            aria-expanded="false"
+                        >
+                            {isMenuOpen ? (
+                                <FaTimes className="h-6 w-6" />
+                            ) : (
+                                <FaBars className="h-6 w-6" />
+                            )}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+           
+            
+        </header>
     );
 };
 
