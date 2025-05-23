@@ -90,20 +90,7 @@ const Header = () => {
                         )}
                     </div>
 
-                    {/* Mobile menu button */}
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={toggleMenu}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-green-600 focus:outline-none"
-                            aria-expanded="false"
-                        >
-                            {isMenuOpen ? (
-                                <FaTimes className="h-6 w-6" />
-                            ) : (
-                                <FaBars className="h-6 w-6" />
-                            )}
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
 

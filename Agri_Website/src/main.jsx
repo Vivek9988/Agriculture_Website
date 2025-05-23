@@ -18,7 +18,7 @@ import OurServices from './HeaderComponent/OurServices.jsx';
 import Testimonials from './HeaderComponent/Testimonals.jsx';
 import Contact from './HeaderComponent/Contact.jsx';
 import Vlog from './HeaderComponent/Vlog.jsx';
-import Signup from './HeaderComponent/Signup.jsx';
+import Signup from './Components/Signup.jsx';
 import ChatBox from './HomeComponent/ChatBox.jsx';
 import Soil from './HomeComponent/Soil.jsx';
 import WeatherComponent from './HomeComponent/WeatherComponent.jsx';
@@ -56,6 +56,7 @@ const router = createBrowserRouter(
       <Route path="SeedCalculator" element={<SeedCalculator/>} />
       <Route path="IrrigationManagement" element={<IrrigationManagement/>} />
       <Route path="CommunityGarden" element={<CommunityGarden />} />
+
 
 
 

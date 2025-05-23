@@ -26,8 +26,9 @@ const Signup = () => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
-                credentials: "include",  // <---- add this to send and receive cookies
+                
             });
+
             const data = await res.json();
             if (data.success) {
                 alert(data.message);
@@ -40,7 +41,7 @@ const Signup = () => {
             console.error("Signup failed:", err);
         }
     };
-    
+
     return (
         <div
             className="min-h-screen flex items-center justify-center"

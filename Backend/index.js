@@ -1,18 +1,15 @@
 const express = require('express');
 require('dotenv').config()
+const { default: mongoose } = require('mongoose');
 const userRoute = require('./routes/user')
 const axios = require('axios');
 const cors = require('cors');
-const mongoose = require('mongoose');
 
 //const urlRoute = require('./routes/user');
 
 const app = express();
 
 app.use(cors());
-
-
-
 
 app.use(express.json());
 (async () => {

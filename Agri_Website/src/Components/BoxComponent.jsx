@@ -41,7 +41,7 @@ const BoxComponent = () => {
         {
             id: 6,
             title: "Farm Education",
-            image: "https://dsiweb.cse.msu.edu/wp-content/uploads/2014/10/agriculture-education.jpg",
+            image: "https://plus.unsplash.com/premium_photo-1663945779301-2c51b59c911e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             link: "/FarmEducation",
             alt: "Farm Education"
         },

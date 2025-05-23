@@ -13,9 +13,3 @@ export default defineConfig({
 })
 
 
-// frontend: localhoost:5179
-// backend: localhost:3000
-
-
-// frontend: vivek.com
-// backend: goli.com 
